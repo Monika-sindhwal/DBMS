@@ -1,0 +1,40 @@
+
+*{
+    font-size: 19px;;
+   
+    
+}
+.main{
+    /* background-image: linear-gradient(to bottom,#00a096 , white); */
+    /* background-image: linear-gradient(to bottom, #f8f3ea;, white); */
+    background-color: #ffece5 ;
+    padding: 20px;
+
+}
+H1{
+    font-size: larger;
+    color: #00a096;
+}
+p span{
+    font-size: 19px;
+    font-weight:700 ;
+    color: #00a096;
+}
+.example{
+    
+    border: 0.25vw solid #00a096;;; 
+    padding:20px;
+    background-color: #dcdcdc ;
+}
+th,td{
+    border:1px solid black;
+    padding:20px;
+}
+.ex{
+    /* color:#ff4d4dd6; ; */
+    color: #00a096;;
+}
+.img{
+    width:30vw;
+    margin-left:35vw;
+}

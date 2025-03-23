@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="commands.css">
+</head>
+<body>
+   <div class="main">
+    <h1>ROW-LEVEL Trigger</h1>
+    <P>A row-level trigger is fired each time the table is affected by the triggering statement, ie it is fired once for each row that is affected by the triggering statement
+<BR></BR>
+        For example, if an UPDATE statement updates multiple rows of a table, a row trigger fired once for each row affected by the UPDATE statement. If a triggering statement affeCts no row's, a row trigger is not executed at all.
+        <BR></BR>
+        Row-level triggers are useful if the code in the trigger action depends on data provided by the triggering statement or rows that are affected. Row-level triggers are implemented by using the option FOR EACH ROW in CREATE TRIGGER statement</P>
+  <span>EXAMPLE</span>
+    <BR></BR>
+    <div class="example">
+<pre class="ex">
+CREATE OR REPLACE TRIGGER ROW_LEVEL
+BEFORE UPDATE ON EMP
+FOR EACH ROW
+DECLARE 
+ X VARCHAR(30):='ROW LEVEL TRIGGER FIRED';
+ BEGIN
+ DBMS_OUTPUT.PUT_LINE(X);
+ END;
+</pre>
+UPDATE EMP
+<BR></BR>
+SET SAL=11000
+<BR></BR>
+WHERE DEPT=30;
+<BR></BR>
+ROW LEVEL TRIGGER FIRED;
+<br>
+ROW LEVEL TRIGGER FIRED;
+<br>
+(2 rows updated.)
+   </div> 
+</body>
+</html>

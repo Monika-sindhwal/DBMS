@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="commands.css">
+</head>
+<body>
+   <div class="main">
+    <h1>AFTER Trigger</h1>
+    <P>AFTER triggers are fired after the triggering action is completed For example, if AFTER trigger is associated with INSERT command then it is fired after the row is inserted into the table.</P>
+  <span>EXAMPLE</span>
+    <BR></BR>
+    <div class="example">
+CREATE A TRIGGER FOR THE EMP TABLE, WHICH MAKES THE ENTRY IN NAME COLUMN IN UPPERCASE
+<pre class="ex">
+CREATE OR REPLACE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE ON product
+FOR EACH ROW
+BEGIN
+IF INSERTING THEN
+            DBMS_OUTPUT.PUT_LINE('New row inserted: ' || :NEW.product_id);
+ELSIF UPDATING THEN
+            DBMS_OUTPUT.PUT_LINE('Row updated: ' || :OLD.product_id || ' -> ' || :NEW.product_id);
+ELSIF DELETING THEN
+            DBMS_OUTPUT.PUT_LINE('Row deleted: ' || :OLD.product_id);
+END IF;
+    END;
+</pre>
+
+   </div> 
+</body>
+</html>

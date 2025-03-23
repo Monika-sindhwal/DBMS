@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="commands.css">
+</head>
+<body>
+   <div class="main">
+    <h1>CREATE VIEW</h1>
+    <br>
+    <p><span>SYNTAX</span>:
+        <br>
+        <pre>
+CREATE VIEW view_name
+AS
+SELECT column_list
+FROM table_name [WHERE CONDITION];
+In this syntax:
+view_name - is the name of the view;
+The SELECT statement is used to define the columns and the rows that you want to display in the view.            
+        </pre></p>
+    <span>EXAMPLE</span>
+    <div></div>
+    <BR></BR>
+    <div class="example">Create a view for the employees belonging to department number 20 of EMP table.
+        
+    <PRE class="ex">
+CREATE VIEW V1
+AS
+SELECT * FROM EMP
+WHERE DEPTNO = 20;
+<p>After creating a view, it can be queried just like querying a table.</p>
+SELECT * FROM V1;
+        </PRE></div>
+    
+   </div> 
+</body>
+</html>

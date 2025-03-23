@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="intro.css">
+</head>
+<body>
+ <div class="main">
+    <P><SPAN>Trigger</SPAN> is a named PL SQL program un associated with a spectie database tahte I red in the database and executed (find) automatically in response to a specific event that accurs in the database
+<BR></BR>
+        Oracle allows you to detine procedures that are implicitly executed when ab INSERT UPDATE OF DELETE statement is issued against the associated table. These types of procedures are called Database Trigem
+      <BR></BR>  
+        Database triggers also execute implicitly when some user actions of database system actions occur, for example, when a user logs on, or the DBA shut downs the database
+        <BR></BR>
+        A database trigger can include SQL and PL SQL statements execute as a unit and can meike other stored procedures However, procedures and inggers dilter in the waythey are invoked. While a procedure is explicitly executed by a user or an application trigger is implicitly fired lexecutedi by Oracle when a triggering INSERT UPDATE DELETE statements is issued, no matter what user is connected or what application is being used.
+        <br>
+        In Oracle, there is no limitation to the number of triggers that can be associated with the given table. The trigger es mostly used for keeping the integrity of the information on the database. For example when a new record (representing a new worker) is added to the employees table, new records should be created also in the tables of the taxes, vacations, and salaries.
+        <BR></BR>
+        The database triggers can be utilized to:
+        <BR></BR>
+        1.Implement, compiles business rule, which cannot be implemented using integrit constraints
+<BR></BR>
+2.Audit data modifications For example, to keep track of changes made to a table
+<BR></BR>
+3.Automatically perform an action when another concerned action takes place For
+Example updating a table whenever there is an insertion of a row into another table
+<BR></BR>
+4.Implement complex security authorizations
+<BR></BR>
+5.Maintain replicate tables
+<BR></BR>
+6.Automatically generate derived column values
+<BR></BR>
+7.Prevent invalid transactions
+<BR></BR>
+<H2>GUIDELINES FOR DESIGNING TRIGGERS</H2>
+<P>1.Use triggers to guarantee that when a specific operation is performed related actions are performed
+<BR></BR>
+    2.Use database triggers only for centralized global operations that should be fired le the triggering statement, regardless of which user or application issues the Matement
+    <BR></BR>
+    3.Do not define triggers to duplicate or replace the functionality already built into the Oracle database For example do not define triggers to implement integrity rules thar can be done by using declarative constraints
+    <BR></BR>
+    4.The excessive use of triggers can result in complex interdependencies, which may be difficult to maintain in large applications: Only use triggers when necessary, and beware of recursive and cascading effects
+    <BR></BR>
+   5. If the logic for the trigger is very lengthy, create stored procedures with the logic and invoke them in the trigger body</P>
+
+    </P>
+ </div>
+</body>
+</html>

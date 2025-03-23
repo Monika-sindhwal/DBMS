@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="commands.css">
+</head>
+<body>
+   <div class="main">
+    <h1>Creating a Trigger</h1>
+    <p>CREATE TRIGGER statement is used to create a database trigger.</p>
+    <p> <span>SYNTAX</span></p><BR></BR>
+  <img src="triggersyntax.jpeg" alt="" class="img">
+<br>
+In the syntax:
+<BR></BR>
+
+1.CREATE [OR REPLACE] TRIGGER trigger_name-This clause creates a trigger with the given name or overwrites an existing trigger with the same name.
+<BR></BR>
+
+2.BEFORE | AFTER | INSTEAD OF- This clause indicates at what time should the Irigger get fired. For example. Before or After updating a table INSTEAD OF is used to create a trigger on a view. BEFORE and AFTER cannot be used to create a trigger On a VIEW
+<BR></BR>
+
+3.INSERT (OR) |UPDATE [OR]| DELETE- This clause determines the triggering event More than one triggering events can be used together separated by OR keyword. The trigger gets fired at all the specified triggering event.
+<BR></BR>
+4.[OF col name] - This clause is used with update triggers. This clause is used when you want to trigger an event only when a specific column is updated.
+<BR></BR>
+5.ON table name- This clause identifies the name of the table or view to which the trigger is associated.
+<BR></BR>
+
+6.[REFERENCING (OLD (AS) &LT;old>] [NEW [AS] &LT;new>!! This clause is used t reference the old and new values of the data being changed. By default, you reference the values as cold.column name or new.column_name The referencr names can also be changed from old for new) to any other user-defined name. You cannot reference old values when inserting a record or new values when deleting a record, because they do not exist.
+
+7.[FOR EACH ROW]- This clause is used to determine whether a trigger must fire when each row gets affected de A Row-Level Triggeri or just once when the entire SQL statement is executed .
+
+8.[WHEN &LT;condition>/- This clause is valid only for Row-level triggers. The trigger s fired only for rows that satisfy the condition specified.
+
+<BR></BR>    <span>EXAMPLE</span>
+    <BR></BR>
+    <div class="example">
+The price of a product changes constantly. It is important to maintain the history of the prices of the products.
+<BR></BR>
+        We can create a trigger to update the PRODUCT PRICE HISTORY table when the price of the product is updated in the PRODUCT table . 
+        <BR></BR>
+        STEP 1:CREATE THE 'PRODUCT TABLE ' AND 'PRODUCT_PRICE_HISTORY' TABLE.
+        <PRE class="ex">
+            CREATE TABLE PRODUCT (
+            product_id number(5),
+            product_name varchar(32),
+            supplier_name varchar(32), 
+            unit_price number);
+                        
+            CREATE TABLE PRODUCT_PRICE_HISTORY(
+            product_id number (5),
+            product_name varchar(32), 
+            supplier_name varchar(32),
+            unit_price number
+                            );
+            </PRE>
+STEP 2:INSERT VALUES INTO 'PRODUCT' TABLE:
+<PRE class="ex">
+INSERT INTO PRODUCT VALUES(1001,'BOOK','NEW WAY',500);
+    </PRE>
+STEP 3:CREATE THE HISTORY_TRIGGER AND EXECUTE IT:
+    <PRE class="ex">
+CREATE OF REPLACE TRIGGER HISTORY_TRIGGER
+BEFORE UPDATE OF unit_price ON PRODUCT
+FOR EACH ROW
+BEGIN
+INSERT INTO PRODUCT_PRICE_HISTORY VALUES (:old.product_id,
+:old.product_name,
+:old.supplier_name,
+:old.unit_price);
+END;
+ </PRE>
+ STEP4: LET'S UPDATE THE PRICE OF A PRODUCT:
+ <BR></BR>
+ <PRE class="ex">
+UPDATE PRODUCT
+SET unit_price =800
+WHERE product_id = 100; 
+ </PRE>
+Once the above update query is executed, the trigger fires and updates the PRODUCT PRICE HISTORY table
+
+   </div> 
+</body>
+</html>

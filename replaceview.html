@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="commands.css">
+</head>
+<body>
+   <div class="main">
+    <h1>REPLACE VIEW</h1>
+    <P>The <span>OR REPLACE</span> option allows a view to be created even if one exists with this name already, thus replacing the older version of the view for its owner. This means that the view can be altered without dropping, recreating and regranting object priviliges.</P>
+    </p>
+    <span>EXAMPLE</span>
+    <br><br>
+    <div></div>
+    <div class="example">
+        
+    <PRE class="ex">
+CREATE OR REPLACE VIEW V1
+AS
+SELECT * FROM EMP
+WHERE DEPTNO = 30;
+<p>After creating a view, it can be queried just like querying a table.</p>
+SELECT * FROM V1;
+        </PRE></div>
+        <BR></BR>
+        Views can also be used to rename the columns without affecting the base tables provided the number of columns in view must match the number of columns specified in the SELECT statement. Thus, renaming helps to hide the names of the columns of the base tables.
+    </p>
+  
+    
+   </div> 
+</body>
+</html>

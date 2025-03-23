@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="commands.css">
+</head>
+<body>
+   <div class="main">
+    <h1>BEFORE Trigger</h1>
+    <P>When defining a trigger, you can specify the trigger timing. That is, you can specify whether the trigger action is to be executed before or after the triggering statement. BEFORE and AFTER apply to both statement and row triggers.
+<BR></BR>
+        BEFORE triggers are commonly used to check the validity of the data before the actions performed. For instance, you can use BEFORE trigger to prevent deletion of row if deletion should not be allowed in the given case.</P>
+  <span>EXAMPLE</span>
+    <BR></BR>
+    <div class="example">
+CREATE A TRIGGER FOR THE EMP TABLE, WHICH MAKES THE ENTRY IN NAME COLUMN IN UPPERCASE
+<pre class="ex">
+CREATE OR REPLACE TRIGGER UPPER
+BEFORE INSERT ON EMP
+FOR EACH ROW
+ BEGIN
+:new.NAME := UPPER(:new.NAME);
+ END;
+</pre>
+
+   </div> 
+</body>
+</html>

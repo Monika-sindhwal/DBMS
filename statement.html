@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="commands.css">
+</head>
+<body>
+   <div class="main">
+    <h1>STATEMENT-LEVEL Trigger</h1>
+    <p>A statement-level trigger is fired once on behalf of the triggering statement, regardles the number of rows in the table that the triggering statement affects (even if no rows are affected).
+        <BR></BR>
+For example, if a DELETE statement deletes several rows from a table, a statement level DELETE trigger is fired only once, regardless of how many rows are deleted from the table. 
+<BR></BR>However, statement-level triggers cannot be used to access the data that is being inserted, updated or deleted. In other words, they do not have access to keywords new and old, which are used to access data Statement-level triggers are useful if the code in the trigger action does not depend on the data provided by the triggering statement or the rows affected.</p>
+  <span>EXAMPLE</span>
+    <BR></BR>
+    <div class="example">
+<pre class="ex">
+CREATE OR REPLACE TRIGGER STATEMENT_LEVEL
+BEFORE UPDATE ON EMP
+DECLARE 
+ X VARCHAR(30):='STATEMENT LEVEL TRIGGER FIRED';
+ BEGIN
+ DBMS_OUTPUT.PUT_LINE(X);
+ END;
+</pre>
+UPDATE EMP
+<BR></BR>
+SET SAL=11000
+<BR></BR>
+WHERE DEPT=30;
+<BR></BR>
+STATEMENT LEVEL TRIGGER FIRED;
+   </div> 
+</body>
+</html>
